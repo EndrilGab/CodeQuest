@@ -1,0 +1,114 @@
+:root {
+  --night: #110e1a;
+  --dungeon: #1e1433;
+  --purple: #3d2468;
+  --gold: #c9a84c;
+  --gold-light: #f0d080;
+  --forest: #2e6b3e;
+  --green: #5dbb6b;
+  --wine: #6b1a28;
+  --red: #c0392b;
+  --parchment: #c8a882;
+  --stone: #4a4a5e;
+  --amber: #e8820c;
+  --ink: #2a180c;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; color: var(--parchment); background: var(--night); font-family: Lora, serif; overflow: hidden; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+.app-shell { display: grid; grid-template-columns: 118px 1fr; min-height: 100vh; }
+.side-rail { z-index: 10; padding: 18px 12px; background: linear-gradient(180deg, #231336, #0b0910); border-right: 3px double var(--gold); box-shadow: inset -12px 0 22px #0008; }
+.mini-logo { width: 64px; height: 64px; margin: 0 auto 18px; display: grid; place-items: center; color: var(--gold-light); border: 4px ridge var(--gold); font: 20px 'Press Start 2P'; background: #0006; }
+.nav-token { width: 100%; margin: 6px 0; padding: 9px 4px; color: var(--parchment); background: linear-gradient(#55371c, #241307); border: 2px ridge #8b642e; font-family: 'Uncial Antiqua', serif; }
+.nav-token.active, .nav-token:hover { color: var(--gold-light); border-color: var(--gold); transform: translateY(-1px); }
+main { position: relative; overflow: hidden; }
+.screen { position: absolute; inset: 0; display: none; min-height: 100vh; padding: 32px; background: radial-gradient(circle at 50% 35%, #2b1a45, var(--night) 64%); }
+.screen.active { display: block; }
+.screen::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .14; background-image: linear-gradient(45deg, #fff1 25%, transparent 25%), linear-gradient(-45deg, #0005 25%, transparent 25%); background-size: 18px 18px; }
+h1, h2, h3 { color: var(--gold); font-family: 'Cinzel Decorative', serif; text-shadow: 0 3px #000; }
+.ornate-panel, .portal-card, .quest-board, .scroll-panel, .rpg-dialog, .character-sheet { border: 8px double var(--gold); background: linear-gradient(135deg, #21152d, #110a18); box-shadow: inset 0 0 32px #000b, 0 14px 34px #0009; position: relative; }
+.ornate-panel::after, .portal-card::after, .quest-board::after, .scroll-panel::after, .character-sheet::after { content: '◆'; position: absolute; right: 10px; top: 6px; color: var(--gold); }
+.stone-button, .gold-button, .contract button, .scroll-panel button, .rpg-dialog button, .character-sheet button { border: 3px ridge var(--gold); color: var(--gold-light); background: linear-gradient(#7a6025, #3d2a0e); box-shadow: 0 5px #1b1207; padding: 12px 16px; font-family: 'Uncial Antiqua'; }
+.gold-button { width: 100%; font-family: 'Press Start 2P'; font-size: 11px; }
+.parchment { color: var(--ink); background: linear-gradient(135deg, #dbc08e, #aa7948); border: 4px double #5d3218; box-shadow: inset 0 0 20px #5d321877; }
+.title-screen { text-align: center; background: linear-gradient(#08071299, #110e1a), radial-gradient(circle at 60% 22%, #f0d08044 0 7%, transparent 8%), linear-gradient(160deg, #1c1530, #08110c 55%, #07050b); }
+.moon { position: absolute; right: 14%; top: 8%; width: 112px; height: 112px; border-radius: 50%; background: #eadca6; box-shadow: 0 0 42px #eadca655; }
+.castle { position: absolute; right: 22%; top: 30%; font-size: 140px; color: #07070a; }
+.mist { position: absolute; left: 12%; right: 0; height: 90px; background: #c8a88220; filter: blur(18px); border-radius: 50%; }
+.mist-a { bottom: 23%; } .mist-b { bottom: 13%; left: 28%; }
+.title-lockup { position: relative; margin-top: 36px; }
+.title-lockup h1 { margin: 0; font-size: clamp(56px, 9vw, 132px); letter-spacing: 8px; }
+.title-lockup p { margin: 8px 0; font: italic 28px 'IM Fell English'; color: var(--gold-light); }
+.portal-card { width: min(720px, 88vw); margin: 48px auto 0; padding: 28px; }
+.portal-card label { display: grid; gap: 6px; text-align: left; margin: 10px 0; color: var(--gold-light); font-family: 'IM Fell English'; }
+.portal-card input, .master-screen select { padding: 13px; color: var(--ink); background: #c8a882; border: 4px ridge #6b4420; }
+.class-choice { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
+.title-screen footer { position: absolute; bottom: 10px; width: 100%; left: 0; font-size: 12px; color: #c8a88288; }
+.tavern-screen { display: none; grid-template-columns: 300px 1fr; gap: 24px; background: radial-gradient(circle at 20% 70%, #e8820c55, transparent 22%), linear-gradient(#160d1f, #09050a); }
+.tavern-screen.active, .activity-screen.active { display: grid; }
+.hero-panel { padding: 22px; background: linear-gradient(90deg, #422711, #1a0f08); }
+.avatar { font-size: 76px; text-align: center; }
+.xp-label, .stats { display: flex; justify-content: space-between; gap: 10px; color: var(--gold-light); font-family: 'Press Start 2P'; font-size: 10px; }
+.xp-bar, .mini-progress { height: 18px; padding: 3px; background: #060408; border: 2px solid var(--stone); }
+.xp-bar span, .mini-progress span { display: block; height: 100%; background: linear-gradient(90deg, var(--forest), var(--green)); }
+.wood-nav { display: grid; gap: 10px; margin-top: 22px; }
+.wood-nav button { padding: 12px; color: var(--parchment); background: #3a220e; border: 3px ridge #7c5520; }
+.tavern-hall { position: relative; padding: 34px; }
+.fireplace { position: absolute; left: 15px; bottom: 15px; font-size: 120px; filter: drop-shadow(0 0 30px var(--amber)); }
+.quest-board { max-width: 900px; margin: 0 auto; padding: 24px; background: linear-gradient(#4b2b13, #1b0f08); }
+.daily { padding: 16px; margin-bottom: 18px; font-size: 18px; }
+.contract-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.contract { padding: 16px; display: grid; gap: 12px; }
+.trophy-shelf { position: absolute; right: 50px; bottom: 35px; padding: 16px 24px; background: #2b1608; border-bottom: 12px solid #6d4218; }
+.trophy-shelf span { font-size: 42px; margin: 8px; }
+.map-screen { background: #170d12; }
+.map-parchment { position: relative; height: calc(100vh - 64px); border: 16px solid #6d4218; color: var(--ink); background: radial-gradient(circle, #d7b77a, #9e6d3e); box-shadow: inset 0 0 70px #3d1a08; overflow: hidden; }
+.map-parchment h2 { text-align: center; color: #4a220b; }
+.compass { position: absolute; left: 32px; top: 28px; font-size: 70px; color: #4a220b99; }
+.region-marker { position: absolute; width: 170px; padding: 12px; background: #ead08c; border: 4px ridge #6d4218; color: #241307; font-family: 'Uncial Antiqua'; }
+.region-marker span { display: block; }
+.forest { left: 14%; top: 58%; } .cave { left: 34%; top: 42%; } .castle { left: 52%; top: 28%; font-size: inherit; color: inherit; } .space { left: 70%; top: 16%; } .library { left: 75%; top: 62%; }
+.locked { filter: grayscale(1); opacity: .7; }
+.route { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.route path { fill: none; stroke: #5a2c13; stroke-width: 2; stroke-dasharray: 3 3; }
+.scroll-panel { position: absolute; right: 24px; bottom: 24px; width: 320px; padding: 20px; background: linear-gradient(#d6b47b, #9d683b); color: var(--ink); }
+.region-screen { background: radial-gradient(circle at 45% 35%, #2e6b3e55, transparent 34%), linear-gradient(#111b10, #09070a); }
+.region-header { display: flex; align-items: center; gap: 22px; }
+.region-header button { background: #2b180a; color: var(--gold-light); border: 3px ridge var(--gold); padding: 10px; }
+.stage-path { position: absolute; inset: 22% 12% 18%; background: radial-gradient(circle at 30% 70%, #6b442044, transparent 8%); }
+.stage { position: absolute; width: 82px; height: 82px; border-radius: 50%; border: 6px ridge var(--gold); background: #2b1b13; color: var(--gold-light); font-size: 26px; }
+.stage small { display: block; font-family: 'Press Start 2P'; font-size: 10px; }
+.stage:nth-child(1){left:8%;bottom:12%}.stage:nth-child(2){left:28%;bottom:34%}.stage:nth-child(3){left:48%;bottom:25%}.stage:nth-child(4){left:66%;bottom:48%}.stage:nth-child(5){left:82%;bottom:32%}
+.available { animation: pulse 1.4s infinite; } @keyframes pulse { 50% { box-shadow: 0 0 32px var(--gold); transform: scale(1.06); } }
+.rpg-dialog { position: absolute; left: 38%; bottom: 32px; width: 430px; color: var(--parchment); padding: 20px; }
+.activity-screen { grid-template-columns: 1.4fr .8fr; gap: 22px; background: linear-gradient(#0d0c14, #201328); }
+.activity-tabs { grid-column: 1 / -1; display: flex; gap: 10px; }
+.activity-tabs button { padding: 10px 14px; background: #2a1b39; color: var(--parchment); border: 2px solid var(--purple); }
+.activity-tabs .active { color: var(--gold-light); border-color: var(--gold); }
+.dungeon-pane { position: relative; min-height: 68vh; border: 10px ridge var(--stone); background-color: #24242e; background-image: linear-gradient(#0004 2px, transparent 2px), linear-gradient(90deg, #0004 2px, transparent 2px); background-size: 64px 64px; box-shadow: inset 0 0 70px #000; }
+.hp { position: absolute; top: 18px; left: 18px; font-size: 30px; color: var(--red); }
+.hero, .enemy, .door { position: absolute; font-size: 58px; } .hero { left: 18%; top: 58%; } .enemy { left: 52%; top: 42%; } .door { right: 12%; top: 18%; }
+.spell-panel { padding: 22px; }
+.spell, .assembly span { display: block; margin: 12px 0; padding: 14px; background: #6d4218; border: 4px ridge var(--gold); font-family: 'Press Start 2P'; font-size: 11px; }
+.assembly { min-height: 150px; margin: 18px 0; padding: 10px; border: 4px dashed var(--gold); }
+.trophies-screen { text-align: center; background: radial-gradient(circle at 50% 18%, #e8820c33, transparent 20%), linear-gradient(#1e1433, #08060c); }
+.book-tabs button { padding: 12px 28px; background: #5b3513; color: var(--gold-light); border: 4px ridge var(--gold); }
+.relic-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 38px; }
+.relic-grid article { min-height: 240px; display: grid; place-items: center; padding: 18px; background: linear-gradient(#24172f, #0c0910); border: 7px double var(--gold); font-size: 54px; }
+.relic-grid b, .relic-grid span { display: block; font-size: 16px; }
+.relic-grid .locked { background: #111; color: #777; }
+.master-screen { background: radial-gradient(circle at 50% 70%, #c9a84c22, transparent 35%), #161121; }
+.master-screen header { display: flex; justify-content: space-between; align-items: center; }
+.gem-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.gem-row article { padding: 20px; text-align: center; border: 5px ridge var(--gold); background: #20152f; }
+.gem-row b { display: block; color: var(--gold-light); font: 28px 'Press Start 2P'; }
+table { width: 100%; margin-top: 28px; border-collapse: collapse; background: #c8a882; color: var(--ink); box-shadow: 0 18px 40px #0008; }
+th, td { padding: 16px; border: 3px double #6d4218; text-align: left; } th { font-family: 'Uncial Antiqua'; }
+.ok { color: var(--forest); font-weight: 700; } .warn { color: #946600; font-weight: 700; } .danger { color: var(--red); font-weight: 700; }
+.sheet-screen { background: radial-gradient(circle, #382218, #100c12); }
+.character-sheet { width: min(900px, 92%); margin: 22px auto; padding: 34px; color: var(--ink); background: linear-gradient(135deg, #dcc08b, #a97645); }
+.big { font-size: 120px; float: left; margin-right: 28px; }
+.stats span { padding: 14px; background: #2a1609; color: var(--gold-light); }
+@media (max-width: 960px) { body { overflow: auto; } .app-shell { grid-template-columns: 1fr; } .side-rail { position: sticky; top: 0; display: flex; overflow-x: auto; } .mini-logo { display: none; } .screen { position: relative; min-height: 100vh; } .contract-grid, .relic-grid, .gem-row, .tavern-screen.active, .activity-screen.active { grid-template-columns: 1fr; } }

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeQuest — Plataforma educacional. Experiência de jogo.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=IM+Fell+English:ital@0;1&family=Lora:wght@400;600;700&family=Press+Start+2P&family=Uncial+Antiqua&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="side-rail" aria-label="Navegação de protótipo">
+        <div class="mini-logo">CQ</div>
+        <button class="nav-token active" data-screen="login">Título</button>
+        <button class="nav-token" data-screen="tavern">Taverna</button>
+        <button class="nav-token" data-screen="world">Mapa</button>
+        <button class="nav-token" data-screen="region">Região</button>
+        <button class="nav-token" data-screen="activity">Fases</button>
+        <button class="nav-token" data-screen="trophies">Troféus</button>
+        <button class="nav-token" data-screen="master">Mestre</button>
+        <button class="nav-token" data-screen="sheet">Ficha</button>
+      </aside>
+
+      <main>
+        <section id="login" class="screen title-screen active" aria-label="Tela de título e login">
+          <div class="moon"></div>
+          <div class="castle">♜</div>
+          <div class="mist mist-a"></div>
+          <div class="mist mist-b"></div>
+          <header class="title-lockup">
+            <span class="ornament">◆ ✦ ◆</span>
+            <h1>CODEQUEST</h1>
+            <p>A Grande Aventura do Pensamento Computacional</p>
+          </header>
+          <form class="portal-card">
+            <h2>Crie seu Personagem</h2>
+            <label>Aventureiro:<input value="Lia Runafolha" /></label>
+            <label>Senha Secreta:<input type="password" value="quest" /></label>
+            <div class="class-choice">
+              <button type="button" class="stone-button selected">⚔ SOU HERÓI</button>
+              <button type="button" class="stone-button">📜 SOU MESTRE</button>
+            </div>
+            <button type="button" class="gold-button" data-screen="tavern">▶ INICIAR JORNADA</button>
+          </form>
+          <footer>v4.0 · TCC Dark Fantasy · Pixel Art Clássico</footer>
+        </section>
+
+        <section id="tavern" class="screen tavern-screen" aria-label="Home do aluno na taverna">
+          <aside class="hero-panel ornate-panel">
+            <div class="avatar">🧙‍♀️</div>
+            <h2>Lia Runafolha</h2>
+            <p>Aprendiz dos Algoritmos</p>
+            <div class="xp-label"><span>LVL 8</span><span>6.420 XP</span></div>
+            <div class="xp-bar"><span style="width: 68%"></span></div>
+            <nav class="wood-nav">
+              <button>🏠 Taverna</button><button data-screen="world">🗺 Mapa</button><button data-screen="trophies">🏆 Troféus</button><button>⚔ Ranking</button><button>⚙ Config</button>
+            </nav>
+          </aside>
+          <div class="tavern-hall">
+            <div class="fireplace">🔥</div>
+            <article class="quest-board">
+              <h2>Quadro de Missões</h2>
+              <div class="daily parchment"><strong>🔥 Missão diária:</strong> complete uma fase sem perder corações e ganhe XP duplo. <span>02:14:09</span></div>
+              <div class="contract-grid">
+                <div class="contract parchment"><b>🌲 Floresta dos Algoritmos</b><div class="mini-progress"><span style="width: 72%"></span></div><button data-screen="region">► CONTINUAR</button></div>
+                <div class="contract parchment"><b>💀 Cavernas da Lógica</b><div class="mini-progress"><span style="width: 34%"></span></div><button>► CONTINUAR</button></div>
+                <div class="contract parchment"><b>🏰 Castelo dos Padrões</b><div class="mini-progress"><span style="width: 18%"></span></div><button>► CONTINUAR</button></div>
+              </div>
+            </article>
+            <section class="trophy-shelf"><h3>Relíquias recentes</h3><span>🗡️</span><span>🔥</span><span>⚡</span><span>💎</span></section>
+          </div>
+        </section>
+
+        <section id="world" class="screen map-screen" aria-label="Mapa do mundo">
+          <div class="map-parchment">
+            <h2>TERRAS CONHECIDAS</h2><div class="compass">✦</div>
+            <button class="region-marker forest" data-screen="region">🌲<span>Floresta dos Algoritmos</span></button>
+            <button class="region-marker cave">💀<span>Cavernas da Lógica</span></button>
+            <button class="region-marker castle locked">🏰<span>NÍVEL 10 NECESSÁRIO</span></button>
+            <button class="region-marker space locked">🌌<span>NÍVEL 14 NECESSÁRIO</span></button>
+            <button class="region-marker library locked">📜<span>NÍVEL 18 NECESSÁRIO</span></button>
+            <svg class="route" viewBox="0 0 100 100"><path d="M18 70 C32 50 40 62 48 42 S68 34 78 20" /></svg>
+            <aside class="scroll-panel"><h3>Floresta dos Algoritmos</h3><p>Ruínas cobertas por raízes guardam os fundamentos de sequência, comandos e depuração.</p><div class="mini-progress"><span style="width: 40%"></span></div><button data-screen="region">► ENTRAR</button></aside>
+          </div>
+        </section>
+
+        <section id="region" class="screen region-screen" aria-label="Mapa de fases da região">
+          <header class="region-header"><button data-screen="world">◄ VOLTAR AO MAPA</button><h2>🌲 Floresta dos Algoritmos</h2><div class="xp-bar"><span style="width: 46%"></span></div></header>
+          <div class="stage-path"><button class="stage done">★<small>1</small></button><button class="stage done">★★<small>2</small></button><button class="stage available" data-screen="activity">➤<small>3</small></button><button class="stage locked">🔒<small>4</small></button><button class="stage locked">🔒<small>5</small></button></div>
+          <dialog open class="rpg-dialog"><h3>Fase 3 — Ponte das Runas</h3><p>Monte uma sequência de feitiços para atravessar a ponte, atacar o slime e alcançar a saída.</p><button data-screen="activity">► ENTRAR NA FASE</button></dialog>
+        </section>
+
+        <section id="activity" class="screen activity-screen" aria-label="Telas de atividade dos mundos">
+          <div class="activity-tabs"><button class="active">🌲 Sequências</button><button>💀 Lógica</button><button>🏰 Loops</button><button>🌌 Variáveis</button><button>📜 Biblioteca</button></div>
+          <div class="dungeon-pane"><div class="hp">❤ ❤ ❤ ♡</div><div class="dungeon-grid"><span class="hero">🧝</span><span class="enemy">👾</span><span class="door">🚪</span></div></div>
+          <aside class="spell-panel ornate-panel"><h2>Feitiços de Movimento</h2><div class="spell">→ AVANÇAR</div><div class="spell">↑ PULAR</div><div class="spell">⚔ ATACAR</div><div class="assembly"><span>→ AVANÇAR</span><span>⚔ ATACAR</span><span>→ AVANÇAR</span></div><button class="gold-button">▶ EXECUTAR SEQUÊNCIA</button></aside>
+        </section>
+
+        <section id="trophies" class="screen trophies-screen" aria-label="Sala dos troféus">
+          <h2>Sala dos Troféus</h2><div class="book-tabs"><button>TODAS</button><button>COLETADAS</button><button>SECRETAS</button></div>
+          <div class="relic-grid"><article>🗡️<b>PRIMEIRO SANGUE</b><span>+100 XP</span></article><article>🔥<b>SEMANA EM CHAMAS</b><span>+500 XP</span></article><article>💎<b>MESTRE DA LÓGICA</b><span>???</span></article><article class="locked">👑<b>???</b><span>Alcance o nível máximo</span></article></div>
+        </section>
+
+        <section id="master" class="screen master-screen" aria-label="Painel do professor">
+          <header><h2>Sala do Mestre</h2><select><option>Guilda 7º Ano A</option></select></header><div class="gem-row"><article>👥<b>32</b><span>Aventureiros</span></article><article>⚡<b>24</b><span>Ativos</span></article><article>✦<b>4.880</b><span>XP médio</span></article><article>✅<b>18</b><span>Missões hoje</span></article></div>
+          <table><thead><tr><th>Avatar + Nome</th><th>Região Atual</th><th>Progresso</th><th>XP</th><th>Status</th></tr></thead><tbody><tr><td>🧙‍♀️ Lia</td><td>Floresta</td><td><div class="mini-progress"><span style="width:72%"></span></div></td><td>6420</td><td class="ok">EM CAMPANHA</td></tr><tr><td>🧝 Bento</td><td>Cavernas</td><td><div class="mini-progress"><span style="width:38%"></span></div></td><td>3180</td><td class="warn">INATIVO</td></tr><tr><td>🛡️ Maya</td><td>Castelo</td><td><div class="mini-progress"><span style="width:22%"></span></div></td><td>2900</td><td class="danger">PRECISA DE AJUDA</td></tr></tbody></table>
+        </section>
+
+        <section id="sheet" class="screen sheet-screen" aria-label="Ficha do aventureiro">
+          <article class="character-sheet"><div class="avatar big">🧙‍♀️</div><h2>Lia Runafolha</h2><p>Classe: Aprendiz dos Algoritmos · Nível 8</p><div class="stats"><span>XP 6420</span><span>Fases 31</span><span>Streak 7</span><span>Precisão 91%</span></div><h3>Diário de aventuras</h3><ol><li>17/06/2026 — Ponte das Runas — 3 estrelas</li><li>16/06/2026 — Slime Condicional — 2 estrelas</li></ol><button>📜 ENVIAR PERGAMINHO</button></article>
+        </section>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
